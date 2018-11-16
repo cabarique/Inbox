@@ -42,6 +42,10 @@ class ViewController: UIViewController {
         self.viewModel.updatePosts()
     }
     
+    @IBAction func deleteAll(_ sender: Any) {
+        self.viewModel.removeAll()
+    }
+    
     private func rxBind(){
         self.viewModel.posts
             .subscribe(onNext: { posts in
@@ -86,6 +90,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                 })
                 .disposed(by: postViewModel.disposeBag)
             self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.viewModel.remove(at: indexPath.row)
         }
     }
     

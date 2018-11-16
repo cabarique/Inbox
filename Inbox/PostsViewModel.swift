@@ -27,6 +27,9 @@ class PostsViewModel {
             .disposed(by: self.disposeBag)
     }
     
+    /**
+     Update posts
+     */
     func updatePosts() {
         self.api.rx.request(.posts)
             .map([PostModel].self)
@@ -42,9 +45,28 @@ class PostsViewModel {
             .disposed(by: self.disposeBag)
     }
     
+    /**
+     Update post at index
+     */
     func update(post: PostModel, at index: Int) {
         var _posts = self.posts.value
         _posts[index] = post
+        self.posts.accept(_posts)
+    }
+    
+    /**
+     removes all posts
+     */
+    func removeAll() {
+        self.posts.accept([])
+    }
+    
+    /**
+     removes post at index
+    */
+    func remove(at index: Int) {
+        var _posts = self.posts.value
+        _posts.remove(at: index)
         self.posts.accept(_posts)
     }
 }
