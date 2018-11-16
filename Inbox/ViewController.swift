@@ -16,9 +16,16 @@ class ViewController: UIViewController {
     private let cellIdentifier = "inboxCell"
     
     let viewModel = PostsViewModel()
+    private var toogleFavorite = false {
+        didSet{
+            posts = toogleFavorite ? viewModel.favoritePost.value : viewModel.posts.value
+        }
+    }
+    private var posts: [PostModel] = []
     
     //MARK: IBOutlets
     @IBOutlet weak var postsTableView: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,21 +45,27 @@ class ViewController: UIViewController {
     private func rxBind(){
         self.viewModel.posts
             .subscribe(onNext: { posts in
+                self.posts = self.toogleFavorite ? self.viewModel.favoritePost.value : posts
                 self.postsTableView.reloadData()
         })
         .disposed(by: self.disposeBag)
+    }
+    
+    @IBAction func tooglePostFavorites(_ sender: UISegmentedControl) {
+        self.toogleFavorite = sender.selectedSegmentIndex == 0 ? false : true
+        self.postsTableView.reloadData()
     }
     
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.posts.value.count
+        return self.posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as UITableViewCell
-        let post = self.viewModel.posts.value[indexPath.row]
+        let post = self.posts[indexPath.row]
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.attributedText = getTableText(for: post, at: indexPath.row)
         return cell

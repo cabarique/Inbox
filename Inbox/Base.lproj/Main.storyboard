@@ -25,6 +25,9 @@
                                     <segment title="Favorites"/>
                                 </segments>
                                 <color key="tintColor" red="0.090609625269999994" green="0.82087920979999995" blue="0.023949650079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="tooglePostFavorites:" destination="BYZ-38-t0r" eventType="valueChanged" id="geZ-e0-3kg"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VlU-W3-2TB">
                                 <rect key="frame" x="0.0" y="116" width="375" height="493"/>

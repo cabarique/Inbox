@@ -15,11 +15,16 @@ class PostsViewModel {
     
     //Subjects
     let posts = BehaviorRelay<[PostModel]>(value: [])
+    let favoritePost = BehaviorRelay<[PostModel]>(value: [])
     
     var api = inboxAPI
     
     init() {
         self.updatePosts()
+        self.posts
+            .map{ $0.filter{$0.favorite}}
+            .bind(to: favoritePost)
+            .disposed(by: self.disposeBag)
     }
     
     func updatePosts() {
