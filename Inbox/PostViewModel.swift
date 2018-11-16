@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 
 class PostViewModel {
-    private var disposeBag = DisposeBag()
+    private(set) var disposeBag = DisposeBag()
     var api = inboxAPI
     
     let post: PostModel
@@ -18,7 +18,7 @@ class PostViewModel {
     //Subjects
     fileprivate let commentsSubject = ReplaySubject<[CommentModel]>.create(bufferSize: 1)
     fileprivate let userSubject = ReplaySubject<UserModel>.create(bufferSize: 1)
-    let favoriteSelected = PublishSubject<Bool>()
+    fileprivate let favoriteSelectedSubject = ReplaySubject<Bool>.create(bufferSize: 1)
     
     init(post: PostModel) {
         self.post = post
@@ -48,6 +48,10 @@ class PostViewModel {
             .disposed(by: self.disposeBag)
     }
     
+    func selectFavorite(_ selected: Bool) {
+        self.favoriteSelectedSubject.onNext(selected)
+    }
+    
 }
 
 extension PostViewModel {
@@ -57,5 +61,9 @@ extension PostViewModel {
     
     var userModelObservable: Observable<UserModel> {
         return self.userSubject.asObserver()
+    }
+    
+    var favoriteSelectedObservable: Observable<Bool> {
+        return self.favoriteSelectedSubject.asObserver()
     }
 }

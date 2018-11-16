@@ -41,4 +41,10 @@ class PostsViewModel {
             }
             .disposed(by: self.disposeBag)
     }
+    
+    func update(post: PostModel, at index: Int) {
+        var _posts = self.posts.value
+        _posts[index] = post
+        self.posts.accept(_posts)
+    }
 }

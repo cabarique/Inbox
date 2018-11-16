@@ -35,7 +35,6 @@ class ViewController: UIViewController {
             bb.setTitleTextAttributes([NSAttributedStringKey.font: font], for: .normal)
             self.navigationItem.rightBarButtonItem = bb
         }
-        self.navigationItem.title = "Post"
         self.rxBind()
     }
     
@@ -75,8 +74,17 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         PostViewController().do { vc in
             let post = self.posts[indexPath.row]
+            let newPost = PostModel(id: post.id, userId: post.userId, title: post.title, body: post.body, favorite: post.favorite, readed: true)
+            self.viewModel.update(post: newPost, at: indexPath.row)
+            
             let postViewModel = PostViewModel(post: post)
             vc.set(viewModel: postViewModel)
+            postViewModel.favoriteSelectedObservable
+                .subscribe(onNext: { selected in
+                    let newPost = PostModel(id: post.id, userId: post.userId, title: post.title, body: post.body, favorite: selected, readed: true)
+                    self.viewModel.update(post: newPost, at: indexPath.row)
+                })
+                .disposed(by: postViewModel.disposeBag)
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -89,7 +97,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             let text = favoriteAccesory + " " + model.title
             let range = (text as NSString).range(of: favoriteAccesory)
             attribute = NSMutableAttributedString(string: text)
-            attribute.addAttribute(NSAttributedStringKey.font, value: UIFont.systemFont(ofSize: 25), range: range)
+            attribute.addAttribute(NSAttributedStringKey.font, value: UIFont.systemFont(ofSize: 22), range: range)
         }else if !model.favorite && !model.readed && row <= 20{
             let text = unreadedAccesory + " " + model.title
             let range = (text as NSString).range(of: unreadedAccesory)

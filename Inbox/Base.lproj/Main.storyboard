@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Post-->
+        <!--Posts-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Inbox" customModuleProvider="target" sceneMemberID="viewController">
@@ -82,7 +82,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Post" id="BBA-ed-Z2R"/>
+                    <navigationItem key="navigationItem" title="Posts" id="BBA-ed-Z2R"/>
                     <connections>
                         <outlet property="postsTableView" destination="VlU-W3-2TB" id="KZK-fy-kb8"/>
                     </connections>

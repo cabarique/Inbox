@@ -28,6 +28,22 @@ class PostViewController: UIViewController {
         guard (viewModel != nil) else { fatalError("call setviewModel: before presenting")}
         self.commentsTableView.register(UITableViewCell.self, forCellReuseIdentifier: kTableCellIdentifier)
         self.descriptionTextLabel.text = self.viewModel.post.body
+        self.navigationItem.title = "Post"
+        
+        let favoriteText = self.viewModel.post.favorite ? "⭐": "☆"
+        UIBarButtonItem(title: favoriteText, style: .plain, target: nil, action: nil).do { bb in
+            let font = UIFont.systemFont(ofSize: 23, weight: UIFont.Weight.regular)
+            bb.setTitleTextAttributes([NSAttributedStringKey.font: font], for: .normal)
+            self.navigationItem.rightBarButtonItem = bb
+            bb.title = self.viewModel.post.favorite ? "⭐": "☆"
+            bb.rx.tap.subscribe(onNext: { _ in
+                let post = self.viewModel.post
+                let selected = !post.favorite
+                bb.title = selected ? "⭐": "☆"
+                self.viewModel.selectFavorite(selected)
+            })
+            .disposed(by: self.disposeBag)
+        }
         self.rxBind()
     }
     
