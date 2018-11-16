@@ -39,7 +39,7 @@ class ViewController: UIViewController {
     }
     
     @objc private func selectRefresh() {
-        
+        self.viewModel.updatePosts()
     }
     
     private func rxBind(){
