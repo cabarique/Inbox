@@ -7,16 +7,23 @@
 //
 
 import Foundation
+import Realm
+import RealmSwift
 
-struct PostModel: Decodable {
-    let id: Int
-    let userId: Int
-    let title: String
-    let body: String
-    let readed: Bool
-    let favorite: Bool
+class PostModel: Object, Decodable {
+    @objc dynamic var id: Int = 0
+    @objc dynamic var userId: Int = 0
+    @objc dynamic var title: String = ""
+    @objc dynamic var body: String = ""
+    @objc dynamic var readed: Bool = false
+    @objc dynamic var favorite: Bool = false
     
-    init(id: Int, userId: Int, title: String, body: String, favorite: Bool = false, readed: Bool = false) {
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+    
+    convenience init(id: Int, userId: Int, title: String, body: String, favorite: Bool = false, readed: Bool = false) {
+        self.init()
         self.id = id
         self.userId = userId
         self.title = title
@@ -25,19 +32,31 @@ struct PostModel: Decodable {
         self.favorite = favorite
     }
     
-    enum Keys: String, CodingKey { // declaring our keys
+    private enum Keys: String, CodingKey { // declaring our keys
         case id
         case userId
         case title
         case body
     }
     
-    init(from decoder: Decoder) throws {
+    convenience required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: Keys.self)
         let id = try container.decode(Int.self, forKey: .id)
         let userId = try container.decode(Int.self, forKey: .userId)
         let title = try container.decode(String.self, forKey: .title)
         let body = try container.decode(String.self, forKey: .body)
         self.init(id: id, userId: userId, title: title, body: body, favorite: false, readed: false)
+    }
+    
+    required init() {
+        super.init()
+    }
+    
+    required init(value: Any, schema: RLMSchema) {
+        super.init(value: value, schema: schema)
+    }
+    
+    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
     }
 }

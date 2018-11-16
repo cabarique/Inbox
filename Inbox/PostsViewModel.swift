@@ -9,9 +9,14 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import Realm
+import RealmSwift
 
 class PostsViewModel {
     private var disposeBag = DisposeBag()
+    
+    // Get the default Realm
+    let realm: Realm
     
     //Subjects
     let posts = BehaviorRelay<[PostModel]>(value: [])
@@ -20,6 +25,12 @@ class PostsViewModel {
     var api = inboxAPI
     
     init() {
+        do{
+            realm = try Realm()
+        }catch {
+            fatalError("Enabled to launch realm")
+        }
+        
         self.updatePosts()
         self.posts
             .map{ $0.filter{$0.favorite}}
@@ -36,10 +47,13 @@ class PostsViewModel {
             .subscribe{ event in
                 switch event {
                 case .success(let model):
+                    try? self.realm.write {
+                        model.forEach { self.realm.add($0, update: true) }
+                    }
                     self.posts.accept(model)
                 case .error(_):
-                    //todo fetch from cache
-                    break
+                    let posts = Array(self.realm.objects(PostModel.self))
+                    self.posts.accept(posts)
                 }
             }
             .disposed(by: self.disposeBag)
@@ -49,6 +63,9 @@ class PostsViewModel {
      Update post at index
      */
     func update(post: PostModel, at index: Int) {
+        try? self.realm.write {
+            self.realm.add(post, update: true)
+        }
         var _posts = self.posts.value
         _posts[index] = post
         self.posts.accept(_posts)
@@ -58,6 +75,9 @@ class PostsViewModel {
      removes all posts
      */
     func removeAll() {
+        try? self.realm.write {
+            self.realm.delete(self.posts.value)
+        }
         self.posts.accept([])
     }
     
@@ -65,6 +85,9 @@ class PostsViewModel {
      removes post at index
     */
     func remove(at index: Int) {
+        try? self.realm.write {
+            self.realm.delete(self.posts.value[index])
+        }
         var _posts = self.posts.value
         _posts.remove(at: index)
         self.posts.accept(_posts)

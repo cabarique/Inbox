@@ -86,6 +86,11 @@ final class CachePolicyPlugin: PluginType {
 
 extension inboxEndPoints: CachePolicyGettable {
     var cachePolicy: URLRequest.CachePolicy {
-        return .returnCacheDataElseLoad
+        switch self {
+        case .posts:
+            return .reloadIgnoringLocalCacheData
+        default:
+            return .returnCacheDataElseLoad
+        }
     }
 }

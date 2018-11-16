@@ -10,7 +10,7 @@ target 'Inbox' do
   pod 'Then',          '~> 2.3.0'
   pod 'SnapKit',       '~> 4.0.0'
   pod 'RxCocoa',       '~> 4.2.0'
-
+  pod 'RealmSwift'
   # Pods for Inbox
 
   target 'InboxTests' do
