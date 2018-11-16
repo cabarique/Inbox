@@ -15,6 +15,7 @@
 		DACF01F8219E3D3900F95CEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DACF01F7219E3D3900F95CEE /* Assets.xcassets */; };
 		DACF01FB219E3D3900F95CEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DACF01F9219E3D3900F95CEE /* LaunchScreen.storyboard */; };
 		DACF0206219E3D3900F95CEE /* InboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF0205219E3D3900F95CEE /* InboxTests.swift */; };
+		DACF0212219E441400F95CEE /* UIColor + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF0211219E441400F95CEE /* UIColor + extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		DACF0201219E3D3900F95CEE /* InboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InboxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DACF0205219E3D3900F95CEE /* InboxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxTests.swift; sourceTree = "<group>"; };
 		DACF0207219E3D3900F95CEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DACF0211219E441400F95CEE /* UIColor + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 		DACF01EF219E3D3600F95CEE /* Inbox */ = {
 			isa = PBXGroup;
 			children = (
+				DACF0210219E43FB00F95CEE /* Helpers */,
 				DACF01F0219E3D3600F95CEE /* AppDelegate.swift */,
 				DACF01F2219E3D3600F95CEE /* ViewController.swift */,
 				DACF01F4219E3D3600F95CEE /* Main.storyboard */,
@@ -126,6 +129,14 @@
 				DACF0207219E3D3900F95CEE /* Info.plist */,
 			);
 			path = InboxTests;
+			sourceTree = "<group>";
+		};
+		DACF0210219E43FB00F95CEE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DACF0211219E441400F95CEE /* UIColor + extension.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,6 +347,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DACF0212219E441400F95CEE /* UIColor + extension.swift in Sources */,
 				DACF01F3219E3D3600F95CEE /* ViewController.swift in Sources */,
 				DACF01F1219E3D3600F95CEE /* AppDelegate.swift in Sources */,
 			);

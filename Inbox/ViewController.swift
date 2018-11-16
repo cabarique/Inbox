@@ -7,19 +7,24 @@
 //
 
 import UIKit
+import Then
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        UIBarButtonItem(title: "⟳", style: .plain, target: self, action: #selector(self.selectRefresh)).do { bb in
+            let font = UIFont.systemFont(ofSize: 23, weight: UIFont.Weight.regular)
+            bb.setTitleTextAttributes([NSAttributedStringKey.font: font], for: .normal)
+            self.navigationItem.rightBarButtonItem = bb
+        }
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @objc private func selectRefresh() {
+        
     }
-
-
+    
 }
 
