@@ -32,8 +32,8 @@ extension inboxEndPoints: TargetType {
             return "posts/\(id)"
         case .comments:
             return "comments"
-        case .user:
-            return "users"
+        case .user(let id):
+            return "users/\(id)"
         }
     }
     
@@ -52,12 +52,11 @@ extension inboxEndPoints: TargetType {
     var task: Task {
         switch self {
         case .posts,
-             .post:
+             .post,
+             .user:
             return .requestParameters(parameters: [:], encoding: URLEncoding.default)
         case .comments(let id):
             return .requestParameters(parameters: ["postId": id], encoding: URLEncoding.default)
-        case .user(let userId):
-            return .requestParameters(parameters: ["userId": userId], encoding: URLEncoding.default)
         }
     }
     

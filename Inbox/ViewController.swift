@@ -35,6 +35,7 @@ class ViewController: UIViewController {
             bb.setTitleTextAttributes([NSAttributedStringKey.font: font], for: .normal)
             self.navigationItem.rightBarButtonItem = bb
         }
+        self.navigationItem.title = "Post"
         self.rxBind()
     }
     
@@ -69,6 +70,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.attributedText = getTableText(for: post, at: indexPath.row)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        PostViewController().do { vc in
+            let post = self.posts[indexPath.row]
+            let postViewModel = PostViewModel(post: post)
+            vc.set(viewModel: postViewModel)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     private func getTableText(for model: PostModel, at row: Int) -> NSMutableAttributedString{

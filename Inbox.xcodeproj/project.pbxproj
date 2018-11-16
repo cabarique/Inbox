@@ -20,6 +20,11 @@
 		DACF0217219E546E00F95CEE /* PostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF0216219E546E00F95CEE /* PostsViewModel.swift */; };
 		DACF0219219E54A100F95CEE /* RxHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF0218219E54A100F95CEE /* RxHelper.swift */; };
 		DACF021C219E619300F95CEE /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF021B219E619300F95CEE /* PostModel.swift */; };
+		DACF021E219EFF8800F95CEE /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF021D219EFF8800F95CEE /* CommentModel.swift */; };
+		DACF0220219F000E00F95CEE /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF021F219F000E00F95CEE /* UserModel.swift */; };
+		DACF0222219F018300F95CEE /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF0221219F018300F95CEE /* PostViewModel.swift */; };
+		DACF0225219F05A500F95CEE /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF0223219F05A500F95CEE /* PostViewController.swift */; };
+		DACF0226219F05A500F95CEE /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DACF0224219F05A500F95CEE /* PostViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +59,11 @@
 		DACF0216219E546E00F95CEE /* PostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewModel.swift; sourceTree = "<group>"; };
 		DACF0218219E54A100F95CEE /* RxHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxHelper.swift; sourceTree = "<group>"; };
 		DACF021B219E619300F95CEE /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+		DACF021D219EFF8800F95CEE /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
+		DACF021F219F000E00F95CEE /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		DACF0221219F018300F95CEE /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		DACF0223219F05A500F95CEE /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		DACF0224219F05A500F95CEE /* PostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +135,9 @@
 				DACF01F0219E3D3600F95CEE /* AppDelegate.swift */,
 				DACF01F2219E3D3600F95CEE /* ViewController.swift */,
 				DACF0216219E546E00F95CEE /* PostsViewModel.swift */,
+				DACF0221219F018300F95CEE /* PostViewModel.swift */,
+				DACF0223219F05A500F95CEE /* PostViewController.swift */,
+				DACF0224219F05A500F95CEE /* PostViewController.xib */,
 				DACF01F4219E3D3600F95CEE /* Main.storyboard */,
 				DACF01F7219E3D3900F95CEE /* Assets.xcassets */,
 				DACF01F9219E3D3900F95CEE /* LaunchScreen.storyboard */,
@@ -163,6 +176,8 @@
 			isa = PBXGroup;
 			children = (
 				DACF021B219E619300F95CEE /* PostModel.swift */,
+				DACF021D219EFF8800F95CEE /* CommentModel.swift */,
+				DACF021F219F000E00F95CEE /* UserModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -252,6 +267,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DACF0226219F05A500F95CEE /* PostViewController.xib in Resources */,
 				DACF01FB219E3D3900F95CEE /* LaunchScreen.storyboard in Resources */,
 				DACF01F8219E3D3900F95CEE /* Assets.xcassets in Resources */,
 				DACF01F6219E3D3600F95CEE /* Main.storyboard in Resources */,
@@ -375,13 +391,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DACF0222219F018300F95CEE /* PostViewModel.swift in Sources */,
 				DACF0212219E441400F95CEE /* UIColor + extension.swift in Sources */,
+				DACF021E219EFF8800F95CEE /* CommentModel.swift in Sources */,
 				DACF0217219E546E00F95CEE /* PostsViewModel.swift in Sources */,
 				DACF01F3219E3D3600F95CEE /* ViewController.swift in Sources */,
 				DACF021C219E619300F95CEE /* PostModel.swift in Sources */,
 				DACF0219219E54A100F95CEE /* RxHelper.swift in Sources */,
 				DACF01F1219E3D3600F95CEE /* AppDelegate.swift in Sources */,
+				DACF0220219F000E00F95CEE /* UserModel.swift in Sources */,
 				DACF0215219E533500F95CEE /* InboxAPI.swift in Sources */,
+				DACF0225219F05A500F95CEE /* PostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
