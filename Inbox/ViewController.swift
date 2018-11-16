@@ -8,10 +8,17 @@
 
 import UIKit
 import Then
+import RxSwift
+import RxCocoa
 
 class ViewController: UIViewController {
 
     private let cellIdentifier = "inboxCell"
+    
+    let viewModel = PostsViewModel()
+    
+    //MARK: IBOutlets
+    @IBOutlet weak var postsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,26 +28,56 @@ class ViewController: UIViewController {
             bb.setTitleTextAttributes([NSAttributedStringKey.font: font], for: .normal)
             self.navigationItem.rightBarButtonItem = bb
         }
-        
+        self.rxBind()
     }
     
     @objc private func selectRefresh() {
         
     }
     
+    private func rxBind(){
+        self.viewModel.posts
+            .subscribe(onNext: { posts in
+                self.postsTableView.reloadData()
+        })
+        .disposed(by: self.disposeBag)
+    }
+    
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return self.viewModel.posts.value.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as UITableViewCell
-        cell.textLabel?.text = "inbox 1"
+        let post = self.viewModel.posts.value[indexPath.row]
+        cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.attributedText = getTableText(for: post, at: indexPath.row)
         return cell
     }
     
-    
+    private func getTableText(for model: PostModel, at row: Int) -> NSMutableAttributedString{
+        let unreadedAccesory = "•"
+        let favoriteAccesory = "⭐"
+        let attribute: NSMutableAttributedString
+        if model.favorite {
+            let text = favoriteAccesory + " " + model.title
+            let range = (text as NSString).range(of: favoriteAccesory)
+            attribute = NSMutableAttributedString(string: text)
+            attribute.addAttribute(NSAttributedStringKey.font, value: UIFont.systemFont(ofSize: 25), range: range)
+        }else if !model.favorite && !model.readed && row <= 20{
+            let text = unreadedAccesory + " " + model.title
+            let range = (text as NSString).range(of: unreadedAccesory)
+            attribute = NSMutableAttributedString(string: text)
+            attribute.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.blue, range: range)
+            attribute.addAttribute(NSAttributedStringKey.font, value: UIFont.systemFont(ofSize: 25), range: range)
+        }else{
+            attribute = NSMutableAttributedString(string: model.title)
+        }
+        
+        return attribute
+    }
 }
 

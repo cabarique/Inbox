@@ -17,6 +17,9 @@
 		DACF0206219E3D3900F95CEE /* InboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF0205219E3D3900F95CEE /* InboxTests.swift */; };
 		DACF0212219E441400F95CEE /* UIColor + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF0211219E441400F95CEE /* UIColor + extension.swift */; };
 		DACF0215219E533500F95CEE /* InboxAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF0214219E533500F95CEE /* InboxAPI.swift */; };
+		DACF0217219E546E00F95CEE /* PostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF0216219E546E00F95CEE /* PostsViewModel.swift */; };
+		DACF0219219E54A100F95CEE /* RxHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF0218219E54A100F95CEE /* RxHelper.swift */; };
+		DACF021C219E619300F95CEE /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF021B219E619300F95CEE /* PostModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,9 @@
 		DACF0207219E3D3900F95CEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DACF0211219E441400F95CEE /* UIColor + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + extension.swift"; sourceTree = "<group>"; };
 		DACF0214219E533500F95CEE /* InboxAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxAPI.swift; sourceTree = "<group>"; };
+		DACF0216219E546E00F95CEE /* PostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewModel.swift; sourceTree = "<group>"; };
+		DACF0218219E54A100F95CEE /* RxHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxHelper.swift; sourceTree = "<group>"; };
+		DACF021B219E619300F95CEE /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,9 +120,11 @@
 			isa = PBXGroup;
 			children = (
 				DACF0213219E531100F95CEE /* API */,
+				DACF021A219E617F00F95CEE /* Models */,
 				DACF0210219E43FB00F95CEE /* Helpers */,
 				DACF01F0219E3D3600F95CEE /* AppDelegate.swift */,
 				DACF01F2219E3D3600F95CEE /* ViewController.swift */,
+				DACF0216219E546E00F95CEE /* PostsViewModel.swift */,
 				DACF01F4219E3D3600F95CEE /* Main.storyboard */,
 				DACF01F7219E3D3900F95CEE /* Assets.xcassets */,
 				DACF01F9219E3D3900F95CEE /* LaunchScreen.storyboard */,
@@ -138,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				DACF0211219E441400F95CEE /* UIColor + extension.swift */,
+				DACF0218219E54A100F95CEE /* RxHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -148,6 +157,14 @@
 				DACF0214219E533500F95CEE /* InboxAPI.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		DACF021A219E617F00F95CEE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DACF021B219E619300F95CEE /* PostModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,7 +376,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DACF0212219E441400F95CEE /* UIColor + extension.swift in Sources */,
+				DACF0217219E546E00F95CEE /* PostsViewModel.swift in Sources */,
 				DACF01F3219E3D3600F95CEE /* ViewController.swift in Sources */,
+				DACF021C219E619300F95CEE /* PostModel.swift in Sources */,
+				DACF0219219E54A100F95CEE /* RxHelper.swift in Sources */,
 				DACF01F1219E3D3600F95CEE /* AppDelegate.swift in Sources */,
 				DACF0215219E533500F95CEE /* InboxAPI.swift in Sources */,
 			);

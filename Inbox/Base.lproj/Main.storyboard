@@ -49,7 +49,7 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="65k-kW-R24"/>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="lgf-9M-cjR"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Xqy-m9-ZLm"/>
                                 </connections>
                             </tableView>
@@ -80,6 +80,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Post" id="BBA-ed-Z2R"/>
+                    <connections>
+                        <outlet property="postsTableView" destination="VlU-W3-2TB" id="KZK-fy-kb8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
