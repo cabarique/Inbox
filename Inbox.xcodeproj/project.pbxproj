@@ -16,6 +16,7 @@
 		DACF01FB219E3D3900F95CEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DACF01F9219E3D3900F95CEE /* LaunchScreen.storyboard */; };
 		DACF0206219E3D3900F95CEE /* InboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF0205219E3D3900F95CEE /* InboxTests.swift */; };
 		DACF0212219E441400F95CEE /* UIColor + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF0211219E441400F95CEE /* UIColor + extension.swift */; };
+		DACF0215219E533500F95CEE /* InboxAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACF0214219E533500F95CEE /* InboxAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		DACF0205219E3D3900F95CEE /* InboxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxTests.swift; sourceTree = "<group>"; };
 		DACF0207219E3D3900F95CEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DACF0211219E441400F95CEE /* UIColor + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + extension.swift"; sourceTree = "<group>"; };
+		DACF0214219E533500F95CEE /* InboxAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 		DACF01EF219E3D3600F95CEE /* Inbox */ = {
 			isa = PBXGroup;
 			children = (
+				DACF0213219E531100F95CEE /* API */,
 				DACF0210219E43FB00F95CEE /* Helpers */,
 				DACF01F0219E3D3600F95CEE /* AppDelegate.swift */,
 				DACF01F2219E3D3600F95CEE /* ViewController.swift */,
@@ -137,6 +140,14 @@
 				DACF0211219E441400F95CEE /* UIColor + extension.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		DACF0213219E531100F95CEE /* API */ = {
+			isa = PBXGroup;
+			children = (
+				DACF0214219E533500F95CEE /* InboxAPI.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,6 +361,7 @@
 				DACF0212219E441400F95CEE /* UIColor + extension.swift in Sources */,
 				DACF01F3219E3D3600F95CEE /* ViewController.swift in Sources */,
 				DACF01F1219E3D3600F95CEE /* AppDelegate.swift in Sources */,
+				DACF0215219E533500F95CEE /* InboxAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
