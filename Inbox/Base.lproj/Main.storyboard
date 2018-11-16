@@ -17,14 +17,73 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mHg-lK-w88">
+                                <rect key="frame" x="118" y="80" width="139" height="29"/>
+                                <segments>
+                                    <segment title="All"/>
+                                    <segment title="Favorites"/>
+                                </segments>
+                                <color key="tintColor" red="0.090609625269999994" green="0.82087920979999995" blue="0.023949650079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VlU-W3-2TB">
+                                <rect key="frame" x="0.0" y="116" width="375" height="493"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="inboxCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="inboxCell" textLabel="sSX-U0-TkU" style="IBUITableViewCellStyleDefault" id="tEc-zx-b8X">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tEc-zx-b8X" id="Yfe-oK-d17">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sSX-U0-TkU">
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="65k-kW-R24"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Xqy-m9-ZLm"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="80G-W9-tNj">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="X74-w3-ViZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Delete All">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="VlU-W3-2TB" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="7oP-bw-ubw"/>
+                            <constraint firstItem="VlU-W3-2TB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8a0-nO-QtK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="80G-W9-tNj" secondAttribute="trailing" id="HFu-sj-q6s"/>
+                            <constraint firstItem="VlU-W3-2TB" firstAttribute="top" secondItem="mHg-lK-w88" secondAttribute="bottom" constant="8" id="O03-Ou-Aei"/>
+                            <constraint firstItem="80G-W9-tNj" firstAttribute="top" secondItem="VlU-W3-2TB" secondAttribute="bottom" constant="8" id="U6w-BO-Gwi"/>
+                            <constraint firstItem="80G-W9-tNj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ggx-jZ-X8V"/>
+                            <constraint firstItem="mHg-lK-w88" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="q2A-ws-gkQ"/>
+                            <constraint firstItem="mHg-lK-w88" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="rz8-XS-gRC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="80G-W9-tNj" secondAttribute="bottom" id="xnu-Up-B1M"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Post" id="BBA-ed-Z2R"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1012" y="-564"/>
+            <point key="canvasLocation" x="1012" y="-564.46776611694156"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4Xo-b4-wzZ">

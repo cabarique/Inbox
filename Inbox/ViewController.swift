@@ -11,6 +11,8 @@ import Then
 
 class ViewController: UIViewController {
 
+    private let cellIdentifier = "inboxCell"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,6 +27,20 @@ class ViewController: UIViewController {
     @objc private func selectRefresh() {
         
     }
+    
+}
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as UITableViewCell
+        cell.textLabel?.text = "inbox 1"
+        return cell
+    }
+    
     
 }
 
