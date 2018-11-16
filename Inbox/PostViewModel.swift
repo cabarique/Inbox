@@ -24,7 +24,7 @@ class PostViewModel {
         self.post = post
         
         self.api.rx.request(.comments(post.id))
-            .map([CommentModel].self).debug("**")
+            .map([CommentModel].self)
             .subscribe { event in
                 switch event {
                 case .success(let comments):
@@ -36,7 +36,7 @@ class PostViewModel {
         .disposed(by: self.disposeBag)
         
         self.api.rx.request(.user(post.userId))
-            .map(UserModel.self).debug("++")
+            .map(UserModel.self)
             .subscribe { event in
                 switch event {
                 case .success(let userModel):
